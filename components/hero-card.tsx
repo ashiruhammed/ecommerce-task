@@ -17,7 +17,8 @@ function HeroCard({
         <h2 className="text-[40px] font-bold">FURNITURE</h2>
         <p className="font-semibold">Read more</p>
       </div>
-      <Image fill src={imgSrc} alt={imgAlt} className="-z-50"></Image>
+      <Image fill src={imgSrc} alt={imgAlt} className="-z-50 min-h-[300px]" />
+      <div className="h-[350px] min-h-[full] -z-40 object-cover md:hidden"></div>
     </div>
   );
 }
