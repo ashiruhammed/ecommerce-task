@@ -9,7 +9,6 @@ import MobileNav from "./mobile-nav";
 import OpenIcon from "@/public/icon/OpenIcon";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import CartPopUp from "./cart-popup";
 
 function Nav() {
   const [openNav, setOpenNav] = React.useState(false);
