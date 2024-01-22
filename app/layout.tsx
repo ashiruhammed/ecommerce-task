@@ -5,6 +5,7 @@ import TopNav from "@/components/top-nav";
 import Nav from "@/components/nav";
 import Provider from "@/components/Provider";
 import Footer from "@/components/footer";
+import StoreProvider from "@/components/store-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div>
-          <TopNav />
-          <Nav />
-          <Provider>{children}</Provider>
-          <Footer />
+          <StoreProvider>
+            <TopNav />
+            <Nav />
+
+            <Provider>{children}</Provider>
+            <Footer />
+          </StoreProvider>
         </div>
       </body>
     </html>

@@ -11,9 +11,7 @@ import Clock from "@/public/icon/Clock";
 import Stat from "@/public/icon/Stat";
 import RatingComp from "@/components/rating";
 import Rating from "@/components/rating";
-import FacebookIcon from "@/public/icon/FacebookIcon";
-import InstagramIcon from "@/public/icon/InstagramIcon";
-import TwitterIcon from "@/public/icon/TwitterIcon";
+
 export default function Home() {
   return (
     <main>

@@ -14,6 +14,7 @@ function ProductCarousel({ images }: { images: string[] }) {
       {images.map((img) => (
         <div key={img} className="">
           <Image
+            priority
             alt=""
             width={506}
             height={405}

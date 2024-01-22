@@ -1,15 +1,11 @@
 "use client";
 
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-
-import { useQueryClient } from "@tanstack/react-query";
-import { fetchProduct, useProduct } from "@/utils/product-util";
+import { fetchProduct } from "@/utils/product-util";
 import ProductCarousel from "@/components/product-carousel";
 import Rating from "@/components/rating";
 import Section from "@/components/section";
-import WishList from "@/components/wishlist";
-import Cart from "@/components/cart";
 import WishListIcon from "@/public/icon/WishListIcon";
 import CartIcon from "@/public/icon/CartIcon";
 import Color from "@/public/icon/Color";
@@ -18,24 +14,20 @@ import Arrow from "@/public/icon/Arrow";
 import Skeleton from "@/components/skeleton";
 import Description from "@/components/description";
 import Products from "@/components/products";
-import HooliIcon from "@/public/icon/HooliIcon";
-import LyaIcon from "@/public/icon/LyaIcon";
-import BirdIcon from "@/public/icon/BirdIcon";
-import StripeIcon from "@/public/icon/StripeIcon";
-import AwsIcon from "@/public/icon/AwsIcon";
-import GitIocn from "@/public/icon/GitIocn";
+import Sponsors from "@/components/sponsors";
+import AddProduct from "@/components/add-product";
 
 function Page({ params }: { params: { id: number | string } }) {
-  const { isLoading, isError, error, data, isFetching, isPlaceholderData } =
-    useQuery({
-      queryKey: ["product", params.id],
-      queryFn: () => fetchProduct(params.id),
-      staleTime: 30 * 1000,
-    });
+  const { isLoading, data } = useQuery({
+    queryKey: ["product", params.id],
+    queryFn: () => fetchProduct(params.id),
+    staleTime: 30 * 1000,
+  });
 
   const formattedImages = data?.images.map((img: string) => {
     return img;
   });
+
   console.log(data);
 
   return (
@@ -102,21 +94,7 @@ function Page({ params }: { params: { id: number | string } }) {
                       )
                     )}
                   </div>
-                  <div className="flex gap-5 items-center py-4">
-                    <button className="text-white bg-[#23a6f0] px-5 py-3 rounded-md">
-                      Select Options
-                    </button>
-                    <WishListIcon
-                      aria-label="add to wishlist"
-                      tabIndex={0}
-                      className="text-[24px]"
-                    />
-                    <CartIcon
-                      className="text-[24px]"
-                      aria-label="add to cart"
-                      tabIndex={0}
-                    />
-                  </div>
+                  <AddProduct cart={data} />
                 </div>
               </div>
             </div>
@@ -136,14 +114,7 @@ function Page({ params }: { params: { id: number | string } }) {
               <Products showMoreButton={false} />
             </div>
           </div>
-          <div className="flex flex-col justify-between gap-4 md:flex-row pt-[50px] items-center">
-            <HooliIcon />
-            <LyaIcon />
-            <BirdIcon />
-            <StripeIcon />
-            <AwsIcon />
-            <GitIocn />
-          </div>
+          <Sponsors />
         </Section>
       </div>
     </>
