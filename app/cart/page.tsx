@@ -34,8 +34,8 @@ function Page() {
         {data.cart.map((cart: Product, i: number) => (
           <div
             key={i}
-            className="flex gap-4 items-center border border-[#d0cfcf] px-4 py-2  rounded-md shadow-sm cursor-pointer hover:scale-105 duration-75 justify-between">
-            <div className="space-x-2 flex items-center">
+            className="flex flex-col md:flex-row gap-4 items-center border border-[#d0cfcf] px-4 py-2  rounded-md shadow-sm cursor-pointer hover:scale-105 duration-75 justify-between">
+            <div className="space-x-2 flex flex-col md:flex-row items-center">
               <Image
                 src={cart.thumbnail}
                 width={120}
@@ -52,6 +52,7 @@ function Page() {
               src="/trash.png"
               width={25}
               height={25}
+              className="hidden md:block"
               alt=""
               onClick={() => {
                 // console.log(cart.id)
