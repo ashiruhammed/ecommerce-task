@@ -38,10 +38,20 @@ function TopNav() {
           <p tabIndex={0} aria-live="polite" className="text-sm">
             Follow Us:
           </p>
-          <InstagramIcon aria-label="Instagram icon" tabIndex={0} />
-          <YoutubeIcon aria-label="Youtube icon" tabIndex={0} />
-          <FacebookIcon aria-label="Facebook icon" tabIndex={0} />
-          <TwitterIcon aria-label="Twitter icon" tabIndex={0} />
+          <a href="#" aria-label="instagram">
+            <InstagramIcon />
+          </a>
+
+          <a aria-label="youtube" href="#">
+            {" "}
+            <YoutubeIcon />
+          </a>
+          <a aria-label="facebook" href="#">
+            <FacebookIcon />
+          </a>
+          <a aria-label="twitter" href="#">
+            <TwitterIcon />
+          </a>
         </div>
       </div>
     </div>

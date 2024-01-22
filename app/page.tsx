@@ -64,7 +64,9 @@ export default function Home() {
               <h3 className="text-[#252B42] font-bold text-[24px]">
                 {item.label}
               </h3>
-              <p className="text-[#737373]">{item.description}</p>
+              <p tabIndex={0} aria-live="off" className="text-[#737373]">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
@@ -116,7 +118,7 @@ export default function Home() {
       </Section>
 
       <Section
-        label="what they about us"
+        label="what they say about us"
         className="bg-[#FAFAFA] md:bg-transparent lg:flex gap-[120px]">
         <div
           tabIndex={0}
@@ -184,7 +186,13 @@ export default function Home() {
                 src="/footer-bg.png"
                 fill
                 alt="Backgound image"
-                className="-z-50"
+                className="-z-50 hidden lg:block"
+              />
+              <Image
+                src="/footer-mobile-bg.png"
+                fill
+                alt="Backgound image"
+                className="-z-50 lg:hidden"
               />
             </div>
             <div className="mx-auto max-w-[570px] text-center py-20 space-y-7">
@@ -205,22 +213,6 @@ export default function Home() {
             </div>
           </div>
         </Section>
-      </div>
-      <div className=" bg-[#FAFAFA]">
-        <div className="py-10 px-11 space-y-4 md:flex items-center justify-between  max-w-[1450px] mx-auto">
-          <h2
-            aria-live="polite"
-            className="text-[24px] font-bold text-[#252B42]"
-            tabIndex={0}>
-            Bandage
-          </h2>
-
-          <div className="space-x-5 text-blue-700 flex">
-            <FacebookIcon color="#23A6F0" className="text-[24px]" />
-            <InstagramIcon color="#23A6F0" className="text-[24px]" />
-            <TwitterIcon color="#23A6F0" className="text-[24px]" />
-          </div>
-        </div>
       </div>
     </main>
   );

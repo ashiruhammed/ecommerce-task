@@ -1,9 +1,28 @@
+import FacebookIcon from "@/public/icon/FacebookIcon";
+import InstagramIcon from "@/public/icon/InstagramIcon";
+import TwitterIcon from "@/public/icon/TwitterIcon";
 import React from "react";
 
 function Footer() {
   return (
     <>
-      <div className="flex max-w-[1450px] justify-between mx-auto px-8 py-[50px]">
+      <div>
+        <div className="py-10 px-11 space-y-4 md:flex items-center justify-between  max-w-[1450px] mx-auto">
+          <h2
+            aria-live="polite"
+            className="text-[24px] font-bold text-[#252B42]"
+            tabIndex={0}>
+            Bandage
+          </h2>
+
+          <div className="space-x-5 text-blue-700 flex">
+            <FacebookIcon color="#23A6F0" className="text-[24px]" />
+            <InstagramIcon color="#23A6F0" className="text-[24px]" />
+            <TwitterIcon color="#23A6F0" className="text-[24px]" />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-5 max-w-[1450px] justify-between mx-auto px-8 py-[50px]">
         {[
           {
             header: "Company Info",
@@ -34,7 +53,7 @@ function Footer() {
                 <a
                   key={link}
                   href="#"
-                  aria-live="polite"
+                  aria-live="off"
                   className="font-bold text-[#737373]">
                   {link}
                 </a>
@@ -42,7 +61,7 @@ function Footer() {
             </ul>
           </div>
         ))}
-        <div className="space-y-5">
+        <div className="space-y-5 w-fit">
           <h2>Get in Touch</h2>
           <form className="space-y-1">
             <div className="flex  border border-[#E6E6E6]">

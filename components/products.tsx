@@ -5,14 +5,15 @@ import React, { useState } from "react";
 import ProductCard from "./product-card";
 import ProductSkeletonLoader from "./product-loader";
 
-function Products() {
-  const [limit, setLimit] = useState(10);
+function Products({ showMoreButton = true }: { showMoreButton?: boolean }) {
+  const [limit, setLimit] = useState(!showMoreButton ? 0 : 10);
 
   const { isLoading, isError, error, data, isFetching, isPlaceholderData } =
     useQuery({
       queryKey: ["products", limit],
       queryFn: () => fetchProducts(limit),
       placeholderData: keepPreviousData,
+      staleTime: 30 * 1000,
     });
 
   type dataType = typeof data;
@@ -25,7 +26,7 @@ function Products() {
           data.products.map((dataObj: dataType, i: number) => (
             <ProductCard {...dataObj} key={i} />
           ))}
-        {((limit === 0 && isFetching) || isLoading) &&
+        {((limit === 0 && isFetching && showMoreButton) || isLoading) &&
           Array.from({ length: 10 }).map((_, i) => (
             <ProductSkeletonLoader key={i} />
           ))}

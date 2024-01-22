@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type image = string;
@@ -6,6 +7,7 @@ type image = string;
 interface IProductCard {
   images: image[];
   price: number;
+  id: number | string;
   category: string;
   title: string;
   discountPercentage: number;
@@ -16,13 +18,15 @@ function ProductCard({
   title,
   category,
   price,
+  id,
   discountPercentage,
 }: IProductCard) {
   return (
-    <div
+    <Link
+      href={`/products/${id}`}
       tabIndex={0}
       aria-label={title}
-      className="font-bold flex flex-col items-center gap-2">
+      className="font-bold flex flex-col items-center gap-2 bg-white w-fit">
       <div className="w-[195px] h-[260px] max-h-[260px] relative">
         <Image
           tabIndex={0}
@@ -30,7 +34,7 @@ function ProductCard({
           alt={`${title} product`}
           height={260}
           width={300}
-          className="min-h-full w-[300px] "
+          className="min-h-full w-[300px] max-h-[260px]"
         />
       </div>
       <div className="text-center space-y-2 py-2">
@@ -58,7 +62,7 @@ function ProductCard({
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

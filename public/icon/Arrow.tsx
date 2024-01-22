@@ -24,7 +24,7 @@ const Arrow = ({
         fillRule="evenodd"
         clipRule="evenodd"
         d="M.68.18a.615.615 0 0 1 .872 0l7.384 7.385a.615.615 0 0 1 0 .87L1.552 15.82a.616.616 0 0 1-.871-.872L7.63 8 .68 1.052a.615.615 0 0 1 0-.871Z"
-        fill="#23A6F0"
+        fill={props.color || "#23A6F0"}
       />
     </g>
     <defs>
